@@ -1,0 +1,28 @@
+body {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background: #e8e04e;
+}
+
+header,
+main {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgb(224, 242, 246);
+    border: 1px solid #be6ece;
+}
+
+h1 {
+    color: #10c6f4;
+}
+
+button {
+    padding: .75rem 1rem;
+    color: white;
+    background: #293d7a;
+    border: 0;
+}

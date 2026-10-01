@@ -1,0 +1,59 @@
+body {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #000000e0;
+  background: #edfd85; /* bukti koneksi stylesheet */
+}
+
+header,
+main {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #f8fb67;
+  border: 1px solid #be6ece;
+}
+
+h1 {
+  color: #12b4ef;
+}
+
+button {
+  padding: .75rem 1rem;
+  color: rgb(232, 251, 171);
+  background: #0c120b;
+  border: 0;
+}
+
+/* aturan tambahan sesuai modul */
+
+/* form dengan class card */
+form.card {
+  padding: 1rem;
+  background: white;
+  border: 1px solid #ccc;
+}
+
+/* paragraf petunjuk dengan class notice */
+.notice {
+  color: #175cd3;
+}
+
+/* konflik specificity */
+.card p {
+  color: purple;
+}
+.notice {
+  color: orange;
+}
+
+/* eksperimen box model */
+.card {
+  width: 240px;
+  padding: 16px;
+  border: 2px solid #445;
+  margin: 12px;
+  box-sizing: border-box; /* uji border-box */
+}
