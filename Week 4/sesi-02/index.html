@@ -1,87 +1,87 @@
 <!doctype html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Pertama Saya</title>
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pendaftaran Kegiatan</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <h1>Selamat Datang di Situs Saya</h1>
-        <p>Halaman pertama Pengembangan Situs Web I.</p>
-    </header>
-    <main>
-        <h2>Profil Singkat</h2>
-        <p>Dian Kiani Belinna Purba. Saya sedang belajar web.</p>
-        <button type="button" id="greeting-button">Tampilkan salam</button>
-        <section>
-            <h2>Tujuan Belajar</h2>
-            <ul>
-                <li>Memahami Cara Kerja Web</li>
-                <li>Membuat Halaman HTML</li>
-                <li>Menggunakan Git</li>
-            </ul>
-        </section>
-        <img src="https://tse2.mm.bing.net/th/id/OIP.jqrxDUc6QcUvRkZ1PyYZtQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
-            alt="Deskripsi gambar" width="300" height="200">
-    </main>
-    <script src="main.js"></script>
-    <main>
-        <h1>Pendaftaran Kegiatan</h1>
-        <p>Kolom bertanda wajib harus diisi.</p>
+  <header>
+    <h1>Selamat Datang di Situs Saya</h1>
+    <p>Halaman pertama Pengembangan Situs Web I.</p>
+  </header>
 
-        <form action="index.html" method="get">
+  <main>
+    <h2>Profil Singkat</h2>
+    <p>Dian Kiani Belinna Purba. Saya sedang belajar web.</p>
+    <button type="button" id="greeting-button">Tampilkan salam</button>
 
-            <label for="nama">Nama lengkap (wajib)</label>
-            <input id="nama" name="nama" autocomplete="name" required>
+    <section>
+      <h2>Tujuan Belajar</h2>
+      <ul>
+        <li>Memahami Cara Kerja Web</li>
+        <li>Membuat Halaman HTML</li>
+        <li>Menggunakan Git</li>
+      </ul>
+    </section>
 
-            <label for="email">Email (wajib)</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
+    <img src="https://tse2.mm.bing.net/th/id/OIP.jqrxDUc6QcUvRkZ1PyYZtQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+         alt="Deskripsi gambar" width="300" height="200">
 
-            <label for="telepon">Nomor telepon (wajib)</label>
-            <input id="telepon" name="telepon" type="tel" autocomplete="tel" required>
+    <h1>Pendaftaran Kegiatan</h1>
+    <p class="notice">Kolom bertanda wajib harus diisi.</p>
 
-            <label for="prodi">Program studi (wajib)</label>
-            <select id="prodi" name="prodi" required>
-                <option value="">Pilih program studi</option>
-                <option value="trpl">D4 TRPL</option>
-                <option value="ti">D3 Teknologi Informasi</option>
-            </select>
+    <form class="card" action="index.html" method="get">
 
-            <label for="tiket">Jumlah tiket (wajib)</label>
-            <input id="tiket" name="tiket" type="number" min="1" max="5" step="1" required>
+      <label for="nama">Nama lengkap (wajib)</label>
+      <input id="nama" name="nama" autocomplete="name" required>
 
-            <fieldset>
-                <legend>Mode kehadiran (wajib)</legend>
+      <label for="email">Email (wajib)</label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
 
-                <input id="luring" name="mode" type="radio" value="luring" required>
-                <label for="luring">Luring</label>
+      <label for="telepon">Nomor telepon (wajib)</label>
+      <input id="telepon" name="telepon" type="tel" autocomplete="tel" required>
 
-                <input id="daring" name="mode" type="radio" value="daring">
-                <label for="daring">Daring</label>
-            </fieldset>
+      <label for="prodi">Program studi (wajib)</label>
+      <select id="prodi" name="prodi" required>
+        <option value="">Pilih program studi</option>
+        <option value="trpl">D4 TRPL</option>
+        <option value="ti">D3 Teknologi Informasi</option>
+      </select>
 
-            <fieldset>
-                <legend>Minat topik</legend>
+      <label for="tiket">Jumlah tiket (wajib)</label>
+      <input id="tiket" name="tiket" type="number" min="1" max="5" step="1" required>
 
-                <input id="html" name="minat" type="checkbox" value="html">
-                <label for="html">HTML</label>
+      <fieldset>
+        <legend>Mode kehadiran (wajib)</legend>
+        <input id="luring" name="mode" type="radio" value="luring" required>
+        <label for="luring">Luring</label>
+        <input id="daring" name="mode" type="radio" value="daring">
+        <label for="daring">Daring</label>
+      </fieldset>
 
-                <input id="aksesibilitas" name="minat" type="checkbox" value="aksesibilitas">
-                <label for="aksesibilitas">Aksesibilitas</label>
-            </fieldset>
+      <fieldset>
+        <legend>Minat topik</legend>
+        <input id="html" name="minat" type="checkbox" value="html">
+        <label for="html">HTML</label>
+        <input id="aksesibilitas" name="minat" type="checkbox" value="aksesibilitas">
+        <label for="aksesibilitas">Aksesibilitas</label>
+      </fieldset>
 
-            <label for="catatan">Catatan (opsional)</label>
-            <textarea id="catatan" name="catatan" rows="4" maxlength="300"></textarea>
+      <label for="catatan">Catatan (opsional)</label>
+      <textarea id="catatan" name="catatan" rows="4" maxlength="300"></textarea>
 
-            <button type="submit">Daftar</button>
+      <label for="kode">Kode peserta (6 angka, wajib)</label>
+      <p id="kode-help">Contoh: 001234. Gunakan tepat enam angka.</p>
+      <input id="kode" name="kode" type="text"
+             inputmode="numeric" pattern="[0-9]{6}"
+             aria-describedby="kode-help" required>
 
-        </form>
-    </main>
+      <button type="submit">Daftar</button>
+    </form>
+  </main>
+  <script src="main.js"></script>
 </body>
-
 </html>

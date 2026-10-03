@@ -4,56 +4,50 @@ body {
   padding: 1rem;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #000000e0;
-  background: #edfd85; /* bukti koneksi stylesheet */
+  color: #664611e0;
+  background: #f8f191;
 }
 
 header,
 main {
   padding: 1rem;
   margin-bottom: 1rem;
-  background: #f8fb67;
-  border: 1px solid #be6ece;
+  background: #fbfba4;
+  border: 1px solid #fc8107;
 }
 
 h1 {
-  color: #12b4ef;
+  color: #f49107;
 }
 
 button {
   padding: .75rem 1rem;
-  color: rgb(232, 251, 171);
-  background: #0c120b;
+  color: rgb(244, 223, 37);
+  background: #8a5b04;
   border: 0;
 }
-
-/* aturan tambahan sesuai modul */
-
-/* form dengan class card */
+/
 form.card {
   padding: 1rem;
-  background: white;
+  background: rgb(144, 77, 6);
   border: 1px solid #ccc;
 }
 
-/* paragraf petunjuk dengan class notice */
 .notice {
-  color: #175cd3;
+  color: #6a440a;
 }
 
-/* konflik specificity */
 .card p {
-  color: purple;
+  color: rgb(13, 33, 3);
 }
 .notice {
-  color: orange;
+  color: rgb(251, 60, 12);
 }
 
-/* eksperimen box model */
 .card {
   width: 240px;
   padding: 16px;
-  border: 2px solid #445;
+  border: 2px solid rgb(237, 188, 10);
   margin: 12px;
-  box-sizing: border-box; /* uji border-box */
+  box-sizing: border-box;
 }
