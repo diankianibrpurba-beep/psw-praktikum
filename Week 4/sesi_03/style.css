@@ -1,0 +1,66 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --brand: #175cd3;
+  --space: 1rem;
+  --surface: white;
+  --ink: #243244;
+}
+
+body {
+  margin: 0;
+  padding: var(--space);
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #f4f6fa;
+}
+
+main {
+  width: 90%;
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+p.notice {
+  max-width: 65ch;
+}
+
+.card {
+  max-width: 35rem;
+  padding: var(--space);
+  border: 1px solid #aab4c2;
+  border-radius: .5rem;
+  background: var(--surface);
+}
+
+label {
+  display: block;
+  margin-top: .75rem;
+}
+
+input {
+  width: 100%;
+  padding: .5rem;
+  font: inherit;
+}
+
+button {
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  font: inherit;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
