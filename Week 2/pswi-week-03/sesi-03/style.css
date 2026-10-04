@@ -1,0 +1,7 @@
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid #d10e04fc;
+  outline-offset: 3px;
+}

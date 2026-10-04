@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pendaftaran Kegiatan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <h1>Pendaftaran Kegiatan</h1>
+    <p>Kolom bertanda wajib harus diisi.</p>
+
+    <form action="index.html" method="get">
+
+      <label for="nama">Nama lengkap (wajib)</label>
+      <input id="nama" name="nama" autocomplete="name" required>
+
+      <label for="email">Email (wajib)</label>
+      <input id="email" name="email" type="email"
+             autocomplete="email" required>
+
+      <label for="telepon">Nomor telepon (wajib)</label>
+      <input id="telepon" name="telepon" type="tel"
+             autocomplete="tel" required>
+
+      <label for="prodi">Program studi (wajib)</label>
+      <select id="prodi" name="prodi" required>
+        <option value="">Pilih program studi</option>
+        <option value="trpl">D4 TRPL</option>
+        <option value="ti">D3 Teknologi Informasi</option>
+      </select>
+
+      <label for="tiket">Jumlah tiket (wajib)</label>
+      <input id="tiket" name="tiket" type="number"
+             min="1" max="5" step="1" required>
+
+      <fieldset>
+        <legend>Mode kehadiran (wajib)</legend>
+
+        <input id="luring" name="mode" type="radio"
+               value="luring" required>
+        <label for="luring">Luring</label>
+
+        <input id="daring" name="mode" type="radio"
+               value="daring">
+        <label for="daring">Daring</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Minat topik</legend>
+
+        <input id="html" name="minat" type="checkbox"
+               value="html">
+        <label for="html">HTML</label>
+
+        <input id="aksesibilitas" name="minat" type="checkbox"
+               value="aksesibilitas">
+        <label for="aksesibilitas">Aksesibilitas</label>
+      </fieldset>
+
+      <label for="catatan">Catatan (opsional)</label>
+      <textarea id="catatan" name="catatan" rows="4"
+                maxlength="300"></textarea>
+
+      <label for="kode">Kode peserta (6 angka, wajib)</label>
+      <p id="kode-help">Contoh: 001234. Gunakan tepat enam angka.</p>
+      <input id="kode" name="kode" type="text"
+             inputmode="numeric" pattern="[0-9]{6}"
+             aria-describedby="kode-help" required>
+
+      <button type="submit">Daftar</button>
+
+    </form>
+  </main>
+
+  <figure>
+    <img src="https://th.bing.com/th/id/OIP.iipKrwMycaF0xbbS_ZkqcgHaEK?w=273&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+         alt="Pintu masuk aula kampus, dengan spanduk kegiatan di atasnya">
+    <figcaption>Lokasi kegiatan: aula kampus.</figcaption>
+  </figure>
+</body>
+</html>
