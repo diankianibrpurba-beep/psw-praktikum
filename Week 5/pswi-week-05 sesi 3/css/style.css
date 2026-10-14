@@ -44,25 +44,33 @@ h1 {
   margin-bottom: 1rem;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
+.catalog {
+  display: grid;
   gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
 }
 
 .card {
-  flex: 1 1 15rem;  
-  max-width: 35rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
   padding: var(--space);
-  border: 1px solid #b0c0d7;  
+  border: 1px solid #b0c0d7;
   border-radius: .5rem;
   background: var(--surface);
   min-width: 0;
   text-align: center;
 }
 
-.card h3 {
-  overflow-wrap: anywhere; 
+.card h3, .card p {
+  margin: 0;
+}
+
+.card a {
+  align-self: start;
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .card img {
