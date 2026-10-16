@@ -1,0 +1,101 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --brand: #175cd3;
+  --space: 1rem;
+  --surface: rgb(160, 230, 240);
+  --ink: #090b0e;
+}
+
+body {
+  margin: 0;
+  padding: var(--space);
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #c4d3f1;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap; /* navigasi bisa melipat */
+  gap: .75rem; /* sesuai instruksi modul */
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--brand);
+}
+
+.nav-list a.active {
+  font-weight: bold;
+  border-bottom: 2px solid var(--brand);
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* Grid dasar satu kolom */
+.catalog {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+/* Breakpoint: dua kolom saat >=48rem (~768px) */
+@media (min-width: 48rem) {
+  .catalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: var(--space);
+  border: 1px solid #b0c0d7;
+  border-radius: .5rem;
+  background: var(--surface);
+  min-width: 0; /* cegah overflow horizontal */
+  text-align: center;
+}
+
+.card h3, .card p {
+  margin: 0;
+  overflow-wrap: anywhere; /* teks panjang tetap wrap */
+}
+
+.card a {
+  align-self: start;
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card img {
+  max-width: 80px; /* gambar tetap kecil */
+  height: auto;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Form control agar tidak keluar wadah */
+input, select, textarea {
+  max-width: 100%;
+}
+
+section {
+  padding: 3rem 0;
+}
