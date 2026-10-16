@@ -123,8 +123,7 @@ Saya pakai pola dari modul: kecilkan kasus, baca bukti, ubah satu penyebab, lalu
 - Halaman belum memiliki input, select, atau textarea. Aturan `max-width: 100%` untuk form baru disiapkan dan belum diuji langsung.
 - Breakpoint 48rem saya anggap 768px dengan root font 16px.
 - Hanya ada satu breakpoint (dua kolom), jadi di layar 1200px ke atas kartu terlihat lebar karena container belum diberi `max-width`.
-- Halaman `tentang.html`, `kegiatan.html`, dan `kontak.html` belum tentu ada di folder ini.
-- Kode uji sementara (class `bug`, kata panjang, dan CSS gagal) sudah saya kembalikan ke kode asli setelah pengujian.
+- Kode uji sementara (class `bug`, kata panjang, dan CSS gagal).
 
 # 7. AI Use Statement
 
