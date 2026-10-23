@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kegiatan | Komunitas Web Mahasiswa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Styling Banner Pemandangan Utama */
+    .banner-foto { 
+      margin: 1rem 0; 
+      text-align: center; 
+    }
+    .banner-foto img { 
+      width: 100%; 
+      max-height: 250px; 
+      object-fit: cover; 
+      border-radius: 8px; 
+    }
+    .banner-foto figcaption { 
+      font-size: 0.9rem; 
+      color: #555; 
+      margin-top: 0.4rem; 
+      text-align: center;
+    }
+
+    /* Perbaikan: Gambar di kiri, caption di bawahnya */
+    main figure:not(.banner-foto) {
+      text-align: left;
+      margin: 20px 0;
+    }
+    main figure:not(.banner-foto) img {
+      display: inline-block;
+      border-radius: 6px;
+    }
+    main figure:not(.banner-foto) figcaption {
+      text-align: left;
+      margin-top: 5px;
+      color: #555;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kegiatan Komunitas</h1>
+    <p>Jadwal dan dokumentasi kegiatan organisasi kami.</p>
+
+    <nav aria-label="Navigasi utama">
+      <ul class="nav-list">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="kegiatan.html" aria-current="page">Kegiatan</a></li>
+        <li><a href="daftar.html">Daftar</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <figure class="banner-foto">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=80" alt="Ilustrasi pemandangan alam">
+      <figcaption>Ilustrasi Pemandangan Alam</figcaption>
+    </figure>
+
+    <h2>Jadwal Kegiatan</h2>
+    
+    <!-- Gambar Dokumentasi: Gambar di kiri, caption di bawahnya -->
+    <figure>
+      <img src="https://tse2.mm.bing.net/th/id/OIP.jqrxDUc6QcUvRkZ1PyYZtQHaHa" alt="Mahasiswa berdiskusi" width="200" height="200">
+      <figcaption>Dokumentasi Kegiatan Pelatihan Web.</figcaption>
+    </figure>
+
+    <table id="jadwal" border="1">
+      <caption>Jadwal Kegiatan September 2026</caption>
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Kegiatan</th>
+          <th>Tempat</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>18 Sept</td><td>Lokakarya HTML</td><td>Lab 1</td><td>Selesai</td></tr>
+        <tr><td>20 Sept</td><td>Belajar CSS Dasar</td><td>Lab 2</td><td>Mendatang</td></tr>
+        <tr><td>25 Sept</td><td>Kuis Web I</td><td>Online</td><td>Mendatang</td></tr>
+        <tr><td>30 Sept</td><td>Evaluasi Proyek</td><td>Auditorium</td><td>Mendatang</td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Komunitas Web Mahasiswa.</p>
+  </footer>
+</body>
+</html>

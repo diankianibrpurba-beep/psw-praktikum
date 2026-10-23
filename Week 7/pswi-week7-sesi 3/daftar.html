@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Kegiatan | Komunitas Web Mahasiswa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Styling Banner Pemandangan */
+    .banner-foto { 
+      margin: 1rem 0; 
+      text-align: center; 
+    }
+    .banner-foto img { 
+      width: 100%; 
+      max-height: 250px; 
+      object-fit: cover; 
+      border-radius: 8px; 
+    }
+    .banner-foto figcaption { 
+      font-size: 0.9rem; 
+      color: #555; 
+      margin-top: 0.4rem; 
+    }
+
+    /* CSS Supaya Formulir Bersusun Rapi Ke Bawah */
+    form {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    form label {
+      font-weight: bold;
+      margin-top: 8px;
+      display: block;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="tel"],
+    form input[type="number"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    /* Styling Fieldset & Radio / Checkbox agar sejajar rapi */
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 12px 15px;
+      margin-top: 8px;
+    }
+
+    fieldset legend {
+      font-weight: bold;
+      padding: 0 5px;
+    }
+
+    fieldset label {
+      display: inline-block;
+      font-weight: normal;
+      margin-top: 0;
+      margin-right: 15px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    #kode-help {
+      font-size: 0.85rem;
+      color: #555;
+      margin: 0 0 4px 0;
+    }
+
+    /* Penyesuaian class form-hint dari modul */
+    .form-hint {
+      display: block;
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 2px;
+      margin-bottom: 4px;
+      overflow-wrap: anywhere;
+    }
+
+    button[type="submit"] {
+      margin-top: 15px;
+      padding: 12px 20px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #003d80;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pendaftaran Kegiatan</h1>
+    <p>Silakan isi formulir pendaftaran di bawah ini.</p>
+    
+    <nav aria-label="Navigasi utama">
+      <ul class="nav-list">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="kegiatan.html">Kegiatan</a></li>
+        <li><a href="daftar.html" aria-current="page">Daftar</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Banner Gambar Pemandangan Tepat di Atas h2 -->
+    <figure class="banner-foto">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=80" alt="Ilustrasi pemandangan alam">
+      <figcaption>Ilustrasi Pemandangan Alam</figcaption>
+    </figure>
+
+    <h2>Formulir Pendaftaran</h2>
+    <p>Kolom bertanda wajib harus diisi.</p>
+
+    <!-- Formulir Pendaftaran Lengkap -->
+    <form action="index.html" method="get">
+      <label for="nama">Nama lengkap (wajib)</label>
+      <input id="nama" name="nama" autocomplete="name" required placeholder="Masukkan nama lengkap">
+
+      <label for="email">Email (wajib)</label>
+      <input id="email" name="email" type="email" autocomplete="email" required placeholder="nama@domain.com">
+      <small class="form-hint">Gunakan format email yang aktif (contoh: user@mail.com).</small>
+
+      <label for="telepon">Nomor telepon (wajib)</label>
+      <input id="telepon" name="telepon" type="tel" autocomplete="tel" required placeholder="08xxxxxxxxxx">
+
+      <label for="prodi">Program studi (wajib)</label>
+      <select id="prodi" name="prodi" required>
+        <option value="">Pilih program studi</option>
+        <option value="trpl">D4 TRPL</option>
+        <option value="ti">D3 Teknologi Informasi</option>
+      </select>
+
+      <label for="tiket">Jumlah tiket (wajib)</label>
+      <input id="tiket" name="tiket" type="number" min="1" max="5" step="1" required placeholder="1-5">
+
+      <fieldset>
+        <legend>Mode kehadiran (wajib)</legend>
+        <input id="luring" name="mode" type="radio" value="luring" required>
+        <label for="luring">Luring</label>
+
+        <input id="daring" name="mode" type="radio" value="daring">
+        <label for="daring">Daring</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Minat topik</legend>
+        <input id="html" name="minat" type="checkbox" value="html">
+        <label for="html">HTML</label>
+
+        <input id="aksesibilitas" name="minat" type="checkbox" value="aksesibilitas">
+        <label for="aksesibilitas">Aksesibilitas</label>
+      </fieldset>
+
+      <label for="catatan">Catatan (opsional)</label>
+      <textarea id="catatan" name="catatan" rows="4" maxlength="300" placeholder="Catatan tambahan jika ada..."></textarea>
+
+      <label for="kode">Kode peserta (6 angka, wajib)</label>
+      <small class="form-hint">Format: 6 digit angka (contoh: 123456)</small>
+      <input id="kode" name="kode" type="text" inputmode="numeric" pattern="[0-9]{6}" required placeholder="001234">
+
+      <button type="submit">Daftar</button>
+    </form>
+
+    <!-- Gambar Lokasi Kegiatan Asli -->
+    <figure style="margin-top: 30px;">
+      <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=600&auto=format&fit=crop&q=80" alt="Pintu masuk aula kampus, dengan spanduk kegiatan di atasnya" width="300" style="border-radius: 6px;">
+      <figcaption>Lokasi kegiatan: aula kampus.</figcaption>
+    </figure>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Komunitas Web Mahasiswa.</p>
+  </footer>
+</body>
+</html>
