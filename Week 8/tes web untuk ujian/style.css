@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card {
+    background-color: #313244;
+    width: 100%;
+    max-width: 380px;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border: 1px solid #45475a;
+}
+
+h2 {
+    color: #89b4fa;
+    font-size: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #a6adc8;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #bac2de;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+    background: #1e1e2e;
+    color: #cdd6f4;
+    outline: none;
+}
+
+input:focus {
+    border-color: #89b4fa;
+}
+
+.btn-hitung {
+    width: 100%;
+    padding: 12px;
+    background: #89b4fa;
+    color: #11111b;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-hitung:hover {
+    background: #b4befe;
+}
+
+.hasil-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #1e1e2e;
+    border-radius: 10px;
+    border-left: 4px solid #89b4fa;
+    display: none;
+}
+
+.hasil-box h3 {
+    color: #f5e0dc;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #a6e3a1;
+    color: #11111b;
+    font-weight: bold;
+}

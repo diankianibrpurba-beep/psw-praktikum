@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Nilai TRPL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <h2>🎓 Kalkulator Nilai Matkul</h2>
+        <p class="subtitle">Simulasi Nilai Akhir Praktikum</p>
+
+        <div class="form-group">
+            <label for="namaMatkul">Nama Mata Kuliah:</label>
+            <input type="text" id="namaMatkul" placeholder="misal: Web Development I">
+        </div>
+
+        <div class="form-group">
+            <label for="nilaiTugas">Nilai Tugas (30%):</label>
+            <input type="number" id="nilaiTugas" placeholder="0 - 100" min="0" max="100">
+        </div>
+
+        <div class="form-group">
+            <label for="nilaiUTS">Nilai UTS (35%):</label>
+            <input type="number" id="nilaiUTS" placeholder="0 - 100" min="0" max="100">
+        </div>
+
+        <div class="form-group">
+            <label for="nilaiUAS">Nilai UAS (35%):</label>
+            <input type="number" id="nilaiUAS" placeholder="0 - 100" min="0" max="100">
+        </div>
+
+        <button type="button" class="btn-hitung" onclick="hitungNilai()">Hitung Nilai Akhir</button>
+
+        <div id="hasilBox" class="hasil-box">
+            <h3 id="txtMatkul">-</h3>
+            <p>Nilai Akhir: <strong id="txtNilaiAngka">0</strong></p>
+            <p>Grade: <span id="txtGrade" class="badge">-</span></p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
