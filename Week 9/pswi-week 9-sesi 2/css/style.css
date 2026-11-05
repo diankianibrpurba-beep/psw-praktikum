@@ -1,0 +1,140 @@
+/* Box-sizing Universal & Variabel */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --brand: #175cd3;
+  --space: 1rem;
+  --surface: #e0f2fe;
+  --ink: #0f172a;
+}
+
+/* Mobile-first baseline min-width 320px */
+body {
+  margin: 0;
+  padding: var(--space);
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #f1f5f9;
+  min-width: 320px; 
+}
+
+/* Navigasi Utama */
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--brand);
+}
+
+.nav-list a.active {
+  font-weight: bold;
+  border-bottom: 2px solid var(--brand);
+}
+
+/* Fluid Typography menggunakan clamp() pada h1 */
+h1 {
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* Gambar Fleksibel */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: 0.75rem;
+  color: #475569;
+  margin-top: 0.25rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Catalog Grid & Container Query Setup (.card-wrap) */
+.catalog {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.card-wrap {
+  container-type: inline-size;
+  container-name: catalog-container;
+}
+
+/* Media Query viewport */
+@media (min-width: 48rem) {
+  .catalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card Styling */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: var(--space);
+  border: 1px solid #cbd5e1;
+  border-radius: .5rem;
+  background: var(--surface);
+  min-width: 0; /* Mencegah overflow horizontal flex/grid */
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Kasus Batas: Penanganan teks panjang tanpa spasi */
+.card h3, .card p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.card a {
+  align-self: center;
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: auto;
+}
+
+.card img {
+  max-width: 140px;
+  height: auto;
+  margin: 0 auto 0.5rem auto;
+}
+
+/* Container Query Rule: Padding card berubah saat wadah >= 30rem */
+@container (min-width: 30rem) {
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+/* Aksesibilitas: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}
+
+section {
+  padding: 1.5rem 0;
+}
