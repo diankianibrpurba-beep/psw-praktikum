@@ -5,17 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (tombolMuat) {
     tombolMuat.addEventListener("click", async () => {
-      // ⏱️ Inisialisasi AbortController dan Timer 5 detik sebelum try
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 1);
-
-      tombolMuat.disabled = true;
       elemenPesan.textContent = "Memuat data kegiatan...";
-      daftarContainer.replaceChildren(); // Mengosongkan daftar sebelumnya di awal proses
+      daftarContainer.replaceChildren();
 
       try {
-        // Menggunakan signal dari controller pada fetch
-        const response = await fetch("data/kegiatan.json", { signal: controller.signal });
+        const response = await fetch("data/kegiatan.json");
 
         if (!response.ok) {
           throw new Error(`Gagal memuat data (HTTP Status: ${response.status})`);
@@ -23,47 +17,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const data = await response.json();
 
-        // memastikan data yang diterima berbentuk Array
         if (!Array.isArray(data)) {
           throw new Error("Data harus array");
         }
 
-        // mengosongkan list pakai replaceChildren sebelum render data baru
         daftarContainer.replaceChildren();
 
-        // Loop dan validasi setiap item data
         for (const k of data) {
           if (typeof k.judul !== "string") {
             throw new Error("Judul tidak sesuai");
           }
           const li = document.createElement("li");
-          li.textContent = `${k.judul} - kuota ${k.kuota}`; 
+          li.textContent = k.judul;
           daftarContainer.append(li);
         }
 
-        // Pesan Sukses / Kosong (Empty State)
-        elemenPesan.textContent = data.length
-          ? `${data.length} kegiatan dimuat`
-          : "Belum ada kegiatan";
-
+        elemenPesan.textContent = "";
       } catch (error) {
         console.error("Terjadi kesalahan:", error);
-        
-        // Membedakan AbortError dari error umum
-        if (error.name === "AbortError") {
-          elemenPesan.textContent = "Waktu habis: Proses memuat data terlalu lama (Timeout).";
-        } else {
-          elemenPesan.textContent = error.message;
-        }
-      } finally {
-        // 🧹 Membersihkan timer dan mengaktifkan kembali tombol di finally
-        clearTimeout(timer);
-        tombolMuat.disabled = false;
+        elemenPesan.textContent = error.message;
       }
     });
   }
 
-  // log gambar
   const images = document.querySelectorAll("img");
   images.forEach((img, index) => {
     if (img.complete) {
