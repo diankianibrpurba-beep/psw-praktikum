@@ -1,0 +1,6 @@
+[
+  { "judul": "Pelatihan Dasar Web", "kuota": 20 },
+  { "judul": "Workshop Git & GitHub", "kuota": 15 },
+  { "judul": "Seminar Karir IT", "kuota": 25 },
+  { "judul": "Coding Camp Intensif", "kuota": "dua puluh" }
+]

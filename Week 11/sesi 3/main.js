@@ -1,4 +1,4 @@
-ocument.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const tombolMuat = document.getElementById("muat");
   const elemenPesan = document.getElementById("pesan");
   const daftarContainer = document.getElementById("daftar");
@@ -7,7 +7,7 @@ ocument.addEventListener("DOMContentLoaded", () => {
     tombolMuat.addEventListener("click", async () => {
       // ⏱️ Inisialisasi AbortController dan Timer 5 detik sebelum try
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 1);
+      const timer = setTimeout(() => controller.abort(), 5000);
 
       tombolMuat.disabled = true;
       elemenPesan.textContent = "Memuat data kegiatan...";
@@ -15,7 +15,7 @@ ocument.addEventListener("DOMContentLoaded", () => {
 
       try {
         // Menggunakan signal dari controller pada fetch
-        const response = await fetch("data/kegiatan.json", { signal: controller.signal });
+        const response = await fetch("data/duplikat.json", { signal: controller.signal });
 
         if (!response.ok) {
           throw new Error(`Gagal memuat data (HTTP Status: ${response.status})`);
@@ -81,4 +81,4 @@ ocument.addEventListener("DOMContentLoaded", () => {
       alert("👋 Selamat Belajar Prend Quu Mengenai Pengembangan Situs Web! Jangan lupa untuk selalu berlatih dan eksplorasi lebih lanjut. Semoga sukses dalam perjalanan belajar web nya, ya! 😊");
     });
   }
-});
+}); 

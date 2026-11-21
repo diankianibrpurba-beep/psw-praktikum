@@ -6,7 +6,7 @@ Prodi   : D4 TRPL
 
 ## 1. Tujuan Praktikum
 
-Praktikum Sesi 11 ini berfokus pada implementasi pengambilan data asinkron dari server lokal menggunakan **Fetch API** dan sintaks **`async/await`** di JavaScript. Selain itu, modul ini menekankan pentingnya *defensive programming* melalui validasi tipe data (memastikan format berupa array) serta perlindungan keamanan DOM menggunakan properti `textContent` untuk mencegah celah kerentanan *Cross-Site Scripting (XSS)*.
+Praktikum Sesi 11 ini berfokus pada implementasi pengambilan data asinkron dari server lokal pakai **Fetch API** dan sintaks **`async/await`** di JavaScript. Selain itu, modul ini fokus mengarahkan *defensive programming* melalui validasi tipe data (memastikan format berupa array) serta perlindungan keamanan DOM pakai properti `textContent` untuk mcegah celah kerentanan *Cross-Site Scripting (XSS)*.
 
 ## 2. Backlog (Daftar Tugas Pengerjaan)
 
@@ -48,7 +48,7 @@ Praktikum Sesi 11 ini berfokus pada implementasi pengambilan data asinkron dari 
 
 # Langkah 5: Integrasi Fitur Lama dengan Kode Baru
 
-Memastikan script baru berjalan berdampingan tanpa konflik di dalam satu event `DOMContentLoaded` bersama fitur-fitur lama:
+Memastikan script baru berjalan berdampingan tanpa masalah di dalam satu event `DOMContentLoaded` bersama fitur-fitur lama:
 
 * Log Gambar Aktif* Memeriksa seluruh elemen `<img>` dan mencetak URL sumber aktifnya (`currentSrc`) ke konsol.
 
