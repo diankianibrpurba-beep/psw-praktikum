@@ -2,114 +2,56 @@ NAMA    : Dian Kiani Belinna Purba
 NIM     : 41426036
 Prodi   : D4 TRPL
 
-**PSW Week 9 Sesi 2: Konversi Data, Validasi Input, dan Pengelolaan Koleksi Data JavaScript**
+**PSW Week 11 Sesi 3: Advanced Fetch API, AbortController, dan Failure Matrix**
 
-# 1. Tujuan Praktikum
+## 1. Tujuan Praktikum
 
-- Memahami alur pengikatan file skrip JavaScript (`main.js`) pada dokumen HTML menggunakan atribut `defer` serta verifikasi eksekusi via browser Console.
-- Menerapkan fungsi konversi data secara eksplisit (`Number()`, `Boolean()`) serta pengujian tipe data menggunakan operator `typeof` dan `Number.isFinite()`.
-- Mengimplementasikan logika percabangan kondisi (`if-else`) untuk validasi aturan bisnis serta pengujian nilai batas (*boundary testing*).
-- Mengelola koleksi data berbasis array dan iterasi perulangan (*looping*) secara aman tanpa ada *infinite loop*.
-- Menyusun matriks pengujian sistematis, catatan *troubleshooting*, serta transparansi pemakaian AI (*AI Use Statement*).
+Praktikum Sesi 3 ini berfokus pada pengembangan penanganan kesalahan (*error handling*) jaringan tingkat lanjut pada aplikasi web. Materi utamanya mencakup implementasi pembatasan waktu otomatis menggunakan `AbortController` (Timeout), penerapan struktur blok `try...catch...finally` untuk mengelola status tombol interaktif, serta pengujian ketahanan sistem melalui matriks kegagalan dan uji coba mandiri data ekstrim.
 
-# 2. Struktur Proyek & Integrasi File
+## 2. Backlog (Daftar Tugas Pengerjaan)
 
-Struktur folder dan file pada modul `psw-week9-sesi2` ini adalah sebagai berikut:
-psw-week9-sesi2/
-├── README.md
-├── index.html
-├── js/
-│   └── main.js
-└── bukti/
-    ├── 01_koneksi_console.png
-    ├── 02_konversi_data.png
-    ├── 03_validasi_tiket_normal.png
-    ├── 04_validasi_tiket_batas_bawah.png
-    ├── 05_validasi_tiket_batas_atas.png
-    ├── 06_validasi_tiket_invalid.png
-    ├── 07_loop_tiga_item.png
-    ├── 08_loop_array_kosong.png
-    ├── 09_loop_tambah_item.png
-    ├── 10_latihan_mandiri_sistem.png
-    └── 11_git_commit_final.png
+| ID | Task / Fitur yang Dikerjakan | Prioritas | Status |
+| :--- | :--- | :--- | :--- |
+| **BL-01** | Mengintegrasikan `AbortController` dengan pengaturan batas waktu (timeout) 5 detik pada fungsi `fetch`. | Tinggi | **Done** |
+| **BL-02** | Mengonfigurasi blok `try...catch...finally` untuk memastikan pembersihan *timer* dan pengaktifan kembali tombol di akhir proses. | Tinggi | **Done** |
+| **BL-03** | Melakukan serangkaian pengujian skenario kegagalan (*Failure Matrix*) meliputi status 404, kondisi offline, data kosong, dan berkas rusak. | Tinggi | **Done** |
+| **BL-04** | Merancang dan menguji skenario mandiri tambahan (*stress test*) menggunakan berkas data ekstrim dan duplikasi data. | Sedang | **Done** |
+| **BL-05** | Menyusun dokumentasi lengkap laporan praktikum beserta catatan kendala dan perbaikan. | Tinggi | **Done** |
 
-# 3. Workflow & Eksekusi Perintah Git
+## 3. Milestone (Tahapan Pengembangan)
 
-Berikut adalah urutan perintah Git yang telah dijalankan di terminal VS Code selama pengembangan dan pengujian program:
+- **Inisialisasi Kontrol Waktu:** Menambahkan inisialisasi `AbortController` dan pengaturan pewaktu (*timer*) sebelum proses pengambilan data dimulai untuk mencegah proses pemuatan yang berjalan tanpa batas.
+- **Penyempurnaan Blok Eksekusi:** Menata ulang struktur penanganan error agar dapat membedakan antara kesalahan pembatalan waktu (*AbortError*) dengan kesalahan umum lainnya.
+- **Pengujian Skenario Kegagalan:** Melaksanakan pengujian bertahap untuk memastikan sistem memberikan tanggapan yang tepat pada berbagai kondisi jaringan dan struktur data yang tidak sesuai.
+- **Eksplorasi Uji Mandiri:** Menambahkan variasi berkas data khusus untuk menguji ketahanan logika validasi internal aplikasi terhadap anomali tipe data dan duplikasi data.
+- **Finalisasi Dokumentasi:** Merapikan kode sumber dan menyusun seluruh hasil pengujian ke dalam laporan penugasan.
 
-1. Memeriksa Status dan Mengatur Branch Utama:
-   bash
-   git status
-   git checkout -b main
+## 4. Ringkasan Pelaksanaan Praktikum (Langkah 3 – 7)
 
-2. Menambahkan Perubahan Kode Script dan Laporan:
-   Memperbarui logika pada `js/main.js` untuk nomor 3 sampai dengan nomor 7 serta melengkapi dokumentasi pada `README.md`.
+- **Implementasi AbortController dan Timeout:** Menggunakan objek `AbortController` yang dihubungkan ke opsi `signal` pada fungsi `fetch`, disertai pengaturan waktu 5 detik menggunakan `setTimeout` untuk membatalkan proses secara otomatis jika respons terlalu lambat.
+- **Pengelolaan Blok Finally:** Memastikan perintah pembersihan pewaktu (`clearTimeout`) dan pengaktifan tombol muat diletakkan di dalam blok `finally` agar tombol tidak mengalami kondisi terkunci permanen apabila terjadi kesalahan.
+- **Skenario Kegagalan Berkas dan Jaringan:** Melakukan pengujian kondisi jaringan terputus, respons peladen gagal, berkas data kosong, serta berkas dengan kesalahan sintaksis penulisan.
+- **Uji Coba Mandiri (Stress Test & Duplikasi):** Menerapkan pengujian tambahan menggunakan berkas data dengan tipe nilai yang tidak sesuai pada kolom tertentu serta data yang identik untuk melihat respons validasi sistem secara langsung.
 
-3. Melakukan Staging File:
-   bash
-   git add js/main.js README.md bukti/
+## 5. Matriks Uji
 
-4. Commit Perubahan Fitur Logika JavaScript:
-   bash
-   git commit -m "feat(w09s02): implementasi logika konversi data, validasi tiket, loop koleksi, dan matriks uji"
+| Kasus / Kondisi | Input / Tindakan | Harapan (Prediksi) | Hasil Aktual & Analisis Teknis | Status / Bukti | 
+| ----- | ----- | ----- | ----- | ----- | 
+| **Uji Lambat / Timeout** | Proses pengambilan data dibuat melebihi batas waktu 5 detik. | Sistem membatalkan proses secara paksa dan menampilkan peringatan waktu habis. | Blok menangkap kesalahan `AbortError`, tombol kembali aktif, dan pesan peringatan tampil di layar. | **Berhasil** *(Screenshot 1)* | 
+| **Uji Tanpa Jaringan (Offline)** | Jaringan internet atau peladen lokal dimatikan saat tombol diklik. | Sistem menangkap gangguan koneksi tanpa menghentikan aplikasi secara total. | Masuk ke blok penanganan error, tombol kembali aktif, dan pesan kendala jaringan tercatat. | **Berhasil** *(Screenshot 2)* | 
+| **Uji Data Kosong** | Berkas JSON diisi dengan array kosong tanpa isi data. | Sistem memproses data tanpa kendala dan memberikan informasi bahwa belum ada kegiatan. | Proses berjalan lancar hingga selesai dan menampilkan keterangan status kosong pada antarmuka. | **Berhasil** *(Screenshot 3)* | 
+| **Uji Berkas Rusak** | Berkas JSON sengaja dirusak format penulisannya. | Sistem mendeteksi kesalahan sintaksis dan menampilkannya sebagai pesan kendala. | Proses pembacaan data gagal diterjemahkan, lalu kesalahan tertangkap oleh sistem penanganan. | **Berhasil** *(Screenshot 4)* | 
+| **Uji Status 404** | Alamat path berkas diarahkan ke lokasi yang tidak tersedia. | Sistem mendeteksi kode status HTTP yang gagal dan memunculkan keterangan yang sesuai. | Pengecekan status gagal memicu pelemparan pesan kesalahan yang akurat pada antarmuka. | **Berhasil** *(Screenshot 5)* | 
+| **Uji Mandiri Data Ekstrim** | Berkas data menyertakan tipe nilai yang tidak sesuai dengan ketentuan validasi. | Sistem menolak data tersebut dan menghentikan proses render untuk menjaga integritas tampilan. | Logika validasi mendeteksi ketidaksesuaian tipe data dan menampilkan pesan kesalahan kustom. | **Berhasil** *(Screenshot 6)* | 
+| **Uji Mandiri Duplikasi Data** | Berkas data menyertakan item kegiatan yang identik secara berulang. | Seluruh data dirender tanpa menyebabkan gangguan tata letak atau error sistem. | Sistem berhasil menampilkan semua item dengan aman tanpa merusak susunan antarmuka. | **Berhasil** *(Screenshot 7)* | 
 
-5. Pemeriksaan Riwayat Commit:
-   bash
-   git log --oneline -n 5
+## 6. Bug Log (Catatan Kendala & Perbaikan)
 
-# Keputusan yang diambil:
+| No | Kendala / Bug yang Ditemukan | Penyebab Teknis | Solusi / Perbaikan yang Dilakukan | Status | 
+| ----- | ----- | ----- | ----- | ----- | 
+| 1 | **Kesalahan penulisan nama fungsi objek dokumen** | Terdapat kekeliruan ketik pada awal pembuatan kode sumber. | Memperbaiki penulisan ke bentuk fungsi penjelajah dokumen yang tepat. | **Selesai** | 
+| 2 | **Pengujian batas waktu sulit diamati pada lingkungan lokal** | Berkas data lokal berukuran sangat kecil sehingga proses selesai kurang dari satu detik. | Melakukan pengujian sementara dengan memperketat durasi pewaktu atau memanfaatkan fitur pembatasan jaringan. | **Selesai** | 
+| 3 | **Tombol interaktif tetap terkunci saat terjadi kesalahan** | Perintah pengaktifan tombol belum diletakkan pada bagian akhir proses yang selalu dieksekusi. | Memindahkan fungsi pemulihan status tombol ke dalam blok penutup proses secara menyeluruh. | **Selesai** |
 
-- *Pengikatan Script Semantik:* Menggunakan atribut `<script src="js/main.js" defer></script>` di dalam tag `<head>` HTML agar skrip dieksekusi setelah seluruh elemen DOM selesai dimuat.
-- *Deklarasi Variabel Aman:* Menggunakan `let` dan `const` pada skrip permanen `main.js`, serta mengisolasi variabel di Console menggunakan *block scope* `{}` untuk mencegah error deklarasi ulang (`Identifier has already been declared`).
-- Validasi Input Ketat: Menggabungkan fungsi `Number.isInteger()` dan pemeriksaan rentang angka (`jumlah < 1 || jumlah > 5`) untuk memfilter input tidak sah seperti pecahan desimal dan string non-numerik (`NaN`).
-
-# 4. Latihan Mandiri dan Matriks Uji (Nomor 7)
-
-Pengujian dilakukan secara interaktif melalui Developer Tools (Console Browser) pada lingkungan Live Server.
-
-| Jenis Kasus | Input / Kondisi | Tindakan | Prediksi / Harapan | Hasil Aktual & Analisis | Status / Bukti |
-| ----- | ----- | ----- | ----- | ----- | ----- |
-| **Kasus Normal (Nomor 3 & 4)** | String numerik `"2"` ditambah angka `1`. | Menjalankan `teks + 1` dan `Number(teks) + 1` di Console. | `"2" + 1` menghasilkan `"21"`, sedangkan `Number("2") + 1` menghasilkan `3`. | Konversi eksplisit mengubah string jadi number sehingga operasi aritmatika berjalan valid. | Sesuai (`ss`, `ss`) |
-| **Kasus Normal (Nomor 5)** | Pemesanan tiket jumlah `3` dan `5` (Batas Atas Sah). | Memproses fungsi `validasiTiket("3")` dan `validasiTiket("5")`. | Sistem menghitung total harga (contoh: `3` $\times$ `10000` = `30000`). | Program meloloskan input karena berada dalam batas sah $1 \le x \le 5$. | Sesuai (`ss`, `ss`) |
-| **Kasus Batas (Boundary - Nomor 5)** | Input angka `0` (Batas Bawah Invalid) dan `6` (Batas Atas Invalid). | Memproses fungsi `validasiTiket("0")` dan `validasiTiket("6")`. | Sistem menolak input dan mencetak pesan `"Jumlah tidak valid"`. | Percabangan `if` berhasil mengecek batasan minimum/maksimum secara akurat. | Sesuai (`ss`) |
-| **Kasus Gagal (Nomor 4 & 5)** | Input berupa desimal `"1.5"`, string huruf `"abc"`, dan string kosong `""`. | Memproses konversi `Number("abc")` dan validasi input invalid. | `Number("abc")` menghasilkan `NaN`. Validasi tiket mencetak `"Jumlah tidak valid"`. | `Number.isFinite(NaN)` bernilai `false` dan `Number.isInteger(1.5)` bernilai `false`, sehingga input invalid berhasil dicegat. | Sesuai (`ss`) |
-| **Iterasi Koleksi (Nomor 6)** | Array 3 item `["Reguler", "VIP", "VVIP"]`, array kosong `[]`, dan array bertambah (`.push()`). | Menjalankan perulangan `for` pada masing-masing kondisi array. | Array 3 dan 4 item mencetak seluruh isi. Array kosong tidak memicu perulangan. | Iterasi dinamis menyesuaikan atribut `.length` tanpa memicu *infinite loop*. | Sesuai (`ss`, `ss`, `ss`) |
-| **Integrasi Sistem (Nomor 7)** | Koleksi input campuran `["2", "4", "abc", "6", "3"]`. | Menjalankan perulangan pemrosesan transaksi tiket dan diskon otomatis. | Input valid dihitung harganya (input `4` dapat diskon 10%), input invalid ditolak. | Program berhasil memisahkan data sah dan error dalam satu alur iterasi koleksi. | Sesuai (`ss`) |
-
-# 5. Troubleshooting dan AI Use Statement (Nomor 8)
-
-# A. Catatan Troubleshooting
-
-1. *Masalah SyntaxError `Identifier has already been declared` pada Console:*
-   - *Gejala:* Saat menguji potongan kode berulang kali di Console browser, muncul error `Uncaught SyntaxError: Identifier 'teks' has already been declared`.
-   - *Pemeriksaan & Solusi:* Console menyimpan variabel bertipe `const`/`let` dalam memori sesi. Solusi dilakukan dengan memuat ulang halaman (*refresh* `Ctrl+R`), menghapus variabel `let`/`const` saat pengujian cepat, atau membungkus blok kode uji menggunakan kurung kurawal `{ ... }` untuk mengisolasi cakupan (*scope*).
-
-2. **Perilaku Konversi String Kosong (`""`):**
-   - *Gejala:* Input string kosong `""` saat dikonversi dengan `Number("")` menghasilkan angka `0`.
-   - *Pemeriksaan & Solusi:* Dalam validasi tiket, angka `0` dicegat oleh kondisi `jumlah < 1`, sehingga string kosong secara otomatis dikategorikan sebagai input tidak valid sesuai aturan bisnis.
-
-# B. AI Use Statement
-
-- Alat AI yang Digunakan: Gemini (Google AI Assistant).
-- *Tujuan Penggunaan:* Membantu memahami konsep pengecekan `NaN`, merancang skenario pengujian batas (*boundary testing*), serta menyusun struktur laporan matriks uji secara sistematis.
-- **Bagian Bantuan AI:**
-  * Penjelasan perbedaan perilaku konversi string numerik vs string teks di JavaScript.
-  * Penyusunan simulasi perulangan array dan penanganan kondisi batas untuk mencegah *infinite loop*.
-  * Formating dokumentasi laporan `README.md`.
-
-1. Milestone (Pencapaian Utama)
-- Inisialisasi & Persiapan (Nomor 3): Berhasil menautkan file main.js dan style.css ke index.html, mengonfigurasi Git repository, serta memverifikasi keluaran teks dasar pada Console browser melalui Live Server.
-- Eksplorasi Konversi Data (Nomor 4): Berhasil menguji konversi tipe data string ke angka menggunakan Number(), menganalisis perbedaan operator + (concatenation vs penjumlahan), serta menerapkan validasi Number.isFinite() dan pengecekan string kosong.
-- Penerapan Validasi Aturan Tiket (Nomor 5): Berhasil mengimplementasikan percabangan if-else untuk menyaring input jumlah tiket dengan boundary testing (uji batas normal 1–5, angka 0, angka 6, desimal 1.5, hingga string "abc").
-- Pengelolaan Koleksi Data & Looping (Nomor 6 & 7): Berhasil membuat perulangan array untuk uji tiga item, penanganan array kosong, penambahan item dinamis menggunakan .push(), serta menyelesaikan studi kasus latihan mandiri dengan perhitungan diskon otomatis.
-2. Bug Log (Catatan Kendala & Solusi)
-Kendala 1 (Identifier has already been declared):
-- Penyebab: Penggunaan kata kunci let atau const dengan nama variabel yang sama berulang kali di dalam sesi Console browser yang sama (block scope restriction).
-- Solusi: Melakukan refresh total halaman (Ctrl + R) atau menggunakan ekspresi langsung tanpa deklarasi variabel saat menguji di Console.
-- Kendala 2 (Handling Input Kosong & NaN):
-- Penyebab: Nilai string kosong ("") jika dikonversi dengan Number("") menghasilkan angka 0, yang berpotensi meloloskan validasi batas bawah jika tidak dicek secara spesifik.
-- Solusi: Menambahkan fungsi validasi logika !Number.isInteger() dan pengecekan rentang jumlah < 1 untuk menangkap input kosong maupun desimal.
-3. Backlog (Rencana Pengembangan / Tugas Tertunda)
-- Implementasi Antarmuka Pengguna (UI): Menghubungkan logika JavaScript pada file main.js agar langsung terikat dengan elemen <form> dan <input> di halaman HTML secara real-time (bukan hanya dicetak di Console).
-- Fitur Penanganan Error Visual (DOM Manipulation): Menambahkan elemen teks peringatan merah (error message span) di bawah form input ketika pengguna salah memasukkan jumlah tiket atau huruf abal-abal, alih-alih hanya menampilkan console.log.
-- Penyempurnaan Unit Testing: Menambahkan skrip pengujian otomatis (automated testing) sederhana menggunakan fungsi kustom untuk memastikan semua skenario boundary test berjalan tanpa harus menguji manual satu per satu.
+# AI Usage Statement 
+Memakai AI untuk penyusunan struktur laporan dan mengarahkan ke percobaan mengikuti arahan modul dan percobaan mandiri. Dalam penyusunan tugas praktikum, penulisan kode sumber, serta perancangan dokumentasi laporan README.md untuk Sesi 3 ini, saya pakai bantuan Gemini sebagai alat bantu diskusi, pengecekan logika penanganan error (error handling), serta penyusunan struktur kalimat laporan. Seluruh hasil kode dan dokumentasi telah ditinjau, diuji coba secara langsung pada perangkat lokal, dan disesuaikan kembali agar sesuai dengan ketentuan modul praktikum week 11 sesi 3
