@@ -1,0 +1,28 @@
+/* Kontras warna tombol utama diatur gelap/terang sempurna */
+button {
+  background-color: #E6E66B;
+  color: #111111;
+  border: 1px solid #B3B347;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #CCCC52;
+}
+
+/* Tombol Edit & Hapus di dalam list */
+li button {
+  background-color: #1E4620;
+  color: #FFFFFF;
+  border: 1px solid #142F15;
+  margin-left: 6px;
+  padding: 3px 8px;
+  font-weight: 600;
+}
+
+li button:hover {
+  background-color: #142F15;
+}

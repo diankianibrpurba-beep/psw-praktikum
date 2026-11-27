@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aplikasi manajemen daftar peserta lokal untuk praktikum pengembangan situs web.">
+  <link rel="icon" href="data:,">
+  <title>Daftar Peserta - Sesi 3</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Daftar Peserta</h1>
+    
+    <form id="form-peserta">
+      <label for="nama">Nama (wajib)</label>
+      <input type="text" id="nama" name="nama" required autocomplete="off">
+      <button type="submit">Tambah</button>
+    </form>
+
+    <p id="pesan" role="status"></p>
+    <ul id="daftar"></ul>
+  </main>
+</body>
+</html>

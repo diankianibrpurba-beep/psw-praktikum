@@ -1,0 +1,25 @@
+/* Warna default untuk tombol Tambah (Kuning Pastel) */
+button {
+  background-color: #FDFD96;
+  color: #333333;
+  border: 1px solid #E6E68A;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #F4F47A;
+}
+
+/* Warna khusus tombol Hapus di dalam daftar list (Hijau Matte / Sage) */
+li button {
+  background-color: #77937E;
+  color: #FFFFFF;
+  border: 1px solid #637D6A;
+  margin-left: 6px;
+}
+
+li button:hover {
+  background-color: #637D6A;
+}
