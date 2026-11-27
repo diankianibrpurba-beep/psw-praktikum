@@ -10,9 +10,9 @@ Prodi   : D4 TRPL
 
 2. Sinkron perubahan data pada memori ke tampilan antarmuka HTML secara otomatis melalui fungsi `render()`.
 
-3. Cegah halaman melakukan *reload* otomatis saat pengiriman *form* pakai `event.preventDefault()` serta validasi input agar tidak kosong/hanya berisi spasi.
+3. Cegah halaman lakukan *reload* otomatis saat pengiriman *form* pakai `event.preventDefault()` serta validasi input agar tidak kosong/hanya berisi spasi.
 
-4. Menerapkan teknik *event delegation* pada elemen pembungkus daftar untuk hapus item secara dinamis berdasarkan ID unik (`dataset.id`).
+4. Menerapkan *event delegation* pada elemen pembungkus daftar untuk hapus item secara dinamis berdasar ID unik (`dataset.id`).
 
 # 2. Struktur Tugas
 
@@ -27,13 +27,13 @@ pswi-week-10/
 
 # 3. Ringkasan Cara Kerja Sistem
 
-* **Penyimpanan State Sementara:** Seluruh data nama peserta beserta ID uniknya disimpan dalam variabel *array* di memori. Karena masih disimpan di memori sementara, data akan otomatis kembali kosong apabila halaman browser dimuat ulang (*refresh*).
+* Penyimpanan State Sementara: Seluruh data nama peserta beserta ID uniknya disimpan dalam variabel *array* di memori. Karena masih disimpan di memori sementara, data akan otomatis kembali kosong apabila halaman browser dimuat ulang (*refresh*).
 
-* **Pembaruan Tampilan Otomatis:** Setiap kali terjadi penambahan atau penghapusan data pada *array*, fungsi pembaruan tampilan akan membersihkan daftar lama dan mencetak ulang seluruh elemen daftar beserta tombol hapusnya yang sudah disematkan atribut `data-id`.
+* Pembaruan Tampilan Otomatis: Setiap kali terjadi penambahan atau penghapusan data pada *array*, fungsi pembaruan tampilan akan membersihkan daftar lama dan mencetak ulang seluruh elemen daftar beserta tombol hapusnya yang sudah disematkan atribut `data-id`.
 
-* **Validasi Input & Keamanan:** Sebelum data disimpan, sistem membersihkan spasi berlebih pada awal dan akhir teks. Jika kosong, sistem menolak penyimpanan dan menampilkan peringatan. Teks nama juga ditampilkan menggunakan properti teks biasa (`textContent`) sehingga aman dari penyisipan tag HTML berbahaya.
+* Validasi Input & Keamanan: Sebelum data disimpan, sistem membersihkan spasi berlebih pada awal dan akhir teks. Jika kosong, sistem menolak penyimpanan dan menampilkan peringatan. Teks nama juga ditampilkan menggunakan properti teks biasa (`textContent`) sehingga aman dari penyisipan tag HTML berbahaya.
 
-* **Event Delegation untuk Hapus Data:** klik tidak dipasang pada setiap tombol hapus satu per satu, tapi dipusatkan pada elemen induk daftar (`<ul>`). Sistem mendeteksi tombol mana yang diklik berdasarkan ID-nya, menyaring data keluar dari *array*, lalu memperbarui tampilan.
+* Event Delegation untuk Hapus Data: klik tidak dipasang pada setiap tombol hapus satu per satu, tapi dipusatkan pada elemen induk daftar (`<ul>`). Sistem mendeteksi tombol mana yang diklik berdasarkan ID-nya, menyaring data keluar dari *array*, lalu memperbarui tampilan.
 
 # 4. Analisis Penyesuaian Kode (Mengapa Kode Perlu Digabung Secara Utuh)
 
